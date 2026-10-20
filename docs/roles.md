@@ -29,7 +29,7 @@ Workspaces are isolated SQLite databases (`data/orgs/<orgId>.db`), while user ac
 | Import register CSV | `POST /api/assets/:id/registers` (`services/api/src/api.ts:254`) | Yes | Yes | Parses and stores official share register as-of snapshot; triggers reconciliation by default. |
 | Delete imported register | `DELETE /api/assets/:id/registers/:id` (`services/api/src/api.ts:262`) | Yes | Yes | Deletes an uploaded register snapshot and its associated runs. |
 | Import journal CSV | `POST /api/assets/:id/journal` (`services/api/src/api.ts:266`) | Yes | Yes | Ingests off-chain transactions for movement matching. |
-| Import instructions CSV | `POST /api/assets/:id/instructions` (`services/api/src/api.ts:271`) | Yes | Yes | Ingests settlement and delivery instructions. |
+| Import instructions CSV | `POST /api/assets/:id/instructions` (`services/api/src/api.ts:271`) | Yes | Yes | Ingests control instructions (`authorize`, `freeze`, `unfreeze`, `clawback`, with account, issued_at, optional units, approved_by, reason) that the controls log matches against on-chain actions. |
 | **Reconciliation & Audit** | | | | |
 | Run reconciliation | `POST /api/assets/:id/reconciliations` (`services/api/src/api.ts:280`) | Yes | Yes | Executes position and movement matching against ledger state as-of register date. |
 | Sign off on breaks / notes | `PUT /api/assets/:id/notes` (`services/api/src/api.ts:295`) | Yes | Yes | Signs off on discrepancies; session user ID and timestamp are permanently recorded in audit trail. |
