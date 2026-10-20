@@ -111,5 +111,5 @@ The following worked example illustrates how a single reconciliation run against
 | Break Type | Severity | Reference / Event | Chain Units | Register Units | Diagnostic Explanation |
 | :--- | :---: | :--- | :--- | :--- | :--- |
 | **`MOVEMENT_AMOUNT_MISMATCH`** | High | Ref: `J-101`, Tx: `a1b2...` | 1,000 units | 1,200 units | Transaction hash matches, but journal recorded 1,200 units while on-chain transaction transferred 1,000 units (`movements.ts:156`). |
-| **`UNRECORDED_MOVEMENT`** | Medium | Event: `ev-502` (`transfer`) | 250 units | N/A | Token transfer observed on ledger between `G_A` and `G_B` with no corresponding journal record (`movements.ts:205`). |
-| **`UNSETTLED_ENTRY`** | Medium | Ref: `J-103` (`issue`) | N/A | 500 units | Transfer agent instructed issuance to `G_C`, but no matching on-chain mint occurred within 24 hours (`movements.ts:221`). |
+| **`UNRECORDED_MOVEMENT`** | High | Event: `ev-502` (`transfer`) | 250 units | N/A | Token transfer observed on ledger between `G_A` and `G_B` with no corresponding journal record (`movements.ts:226`). |
+| **`UNSETTLED_ENTRY`** | High | Ref: `J-103` (`issue`) | N/A | 500 units | Transfer agent instructed issuance to `G_C`, but no matching on-chain mint occurred within 24 hours (`movements.ts:204`). |
